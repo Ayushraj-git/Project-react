@@ -6,11 +6,32 @@ import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
 import SelectedProject from "./components/SelectedProject.jsx";
 
 function App() {
+  // const [projectsState, setProjectsState] = useState({
+  //   selectedProjectId: undefined,
+  //   projects: [] ,
+  //   tasks: []
+  // });
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
-    projects: [] ,
-    tasks: []
+    projects: JSON.parse(localStorage.getItem('projects')) || [],
+    tasks: JSON.parse(localStorage.getItem('tasks')) || [],
   });
+
+  useEffect(() => {
+    const storedProjects = JSON.parse(localStorage.getItem('projects')) || [];
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    setProjectsState({
+      selectedProjectId: undefined,
+      projects: storedProjects,
+      tasks: storedTasks,
+    });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('projects', JSON.stringify(projectsState.projects));
+    localStorage.setItem('tasks', JSON.stringify(projectsState.tasks));
+  }, [projectsState.projects, projectsState.tasks]);
 
   function handleAddTask(text) {
     setProjectsState(prevState => {
