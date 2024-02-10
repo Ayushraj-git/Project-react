@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import NewProject from "./components/NewProject.jsx";
 import NoProjectSelected from "./components/NoProjectSelected.jsx";
@@ -93,23 +93,41 @@ function App() {
       }
     });
   }
-  
+
+
   //to find element in an array by id
   //find id inbuilt feature of js that takes in a function that runs for every element and returns true when it finds the given element
   const selectedProject = projectsState.projects.find(project => project.id === projectsState.selectedProjectId)
 
-  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} onAddTask={handleAddTask} onDeleteTask={handleDeleteTask} tasks={projectsState.tasks}/>
+  let content;
 
-  if(projectsState.selectedProjectId === null) {
-    content = (<NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject}/>);
-  }else if (projectsState.selectedProjectId === undefined) {
+switch (projectsState.selectedProjectId) {
+  case null:
+    content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />;
+    break;
+  case undefined:
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
-  }
+    break;
+  default:
+    content = (
+      <SelectedProject
+        project={selectedProject}
+        onDelete={handleDeleteProject}
+        onAddTask={handleAddTask}
+        onDeleteTask={handleDeleteTask}
+        tasks={projectsState.tasks}
+      />
+    );
+}
+
 
 
   return (
     <main className="h-screen  flex ">
-      <ProjectsSidebar onStartAddProject={handleStartAddProject} projects={projectsState.projects} onSelectProject={handleSelectProject}
+      <ProjectsSidebar 
+      onStartAddProject={handleStartAddProject} 
+      projects={projectsState.projects} 
+      onSelectProject={handleSelectProject}
       selectedProjectId={projectsState.selectedProjectId}/>
       {content}
     </main>
