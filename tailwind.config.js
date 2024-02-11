@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      
+        fontFamily: {
+          protestRiot: ["Protest Riot", "sans-serif"],
+          lilitaOne:["Lilita One", "sans-serif"],
+        },
+      
+    },
   },
   plugins: [],
 }

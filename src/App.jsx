@@ -144,13 +144,16 @@ switch (projectsState.selectedProjectId) {
 
 
   return (
-    <main className="h-screen  flex ">
-      <ProjectsSidebar 
-      onStartAddProject={handleStartAddProject} 
-      projects={projectsState.projects} 
-      onSelectProject={handleSelectProject}
-      selectedProjectId={projectsState.selectedProjectId}/>
-      {content}
+    <main className="min-h-screen flex flex-col bg-gray-100 sm:flex-row">
+      <ProjectsSidebar
+        onStartAddProject={handleStartAddProject}
+        projects={projectsState.projects}
+        onSelectProject={handleSelectProject}
+        selectedProjectId={projectsState.selectedProjectId}
+      />
+      <div className="flex-grow p-4 sm:p-8">
+        {content}
+      </div>
     </main>
   );
 }
