@@ -2,3 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-gradient-midnight-blue {
+    background: linear-gradient(to top left,#161A30,#31304D);
+  }
+
+  
+  .bg-gradient-elegant-day {
+    background: linear-gradient(to right, #B6BBC4,#F0ECE5);
+  }
+  .bg-gradient-custom-purple {
+    background: linear-gradient(to bottom right, #3C0753,#1D2B53,#365486);
+  }
+  .bg-gradient-custom-gr-one {
+    background: linear-gradient(to bottom right, #B0D9B1,#D0E7D2);
+  }
+  .bg-gradient-custom-gr-two {
+    background: linear-gradient(to bottom right, #618264, #79AC78);
+  }
+  .bg-gradient-marine-blue {
+    background: linear-gradient(to bottom right, #96B6C5,#7077A1);
+  }
+  .bg-gradient-mid-red {
+    background: linear-gradient(to bottom right, #BF3131,#7077A1);
+  }
+  .bg-gradient-elegant-day1 {
+    background: linear-gradient(to right,#F0ECE5,#F3F8FF);
+  }
+
+

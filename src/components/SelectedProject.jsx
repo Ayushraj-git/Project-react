@@ -17,10 +17,10 @@ export default function SelectedProject({project, onDelete, onAddTask, onDeleteT
         <div className="w-full mt-16 px-20">
             <header className="pb-4 mb-4 border-b-2 border-stone-300">
                 <div className="flex items-center justify-between">
-                    <h1 className="text-3xl font-bold text-stone-600 mb-2">{project.title}</h1>
-                    <button className="bg-red-500 px-6 py-2 text-white rounded-xl hover:bg-red-700 transition duration-300" onClick={onDelete}>Delete</button>
+                    <h1 className="text-4xl font-bold text-stone-700 mb-2 font-notoSans">{project.title}</h1>
+                    <button className="bg-red-500 px-6 py-2 text-white rounded-xl hover:bg-red-700 transition-all duration-500 ease-in-out transform hover:scale-110" onClick={onDelete}>Delete</button>
                 </div>
-                <p className="mb-4 text-stone-400">{formattedDate}</p>
+                <p className="mb-4 text-stone-500">{formattedDate}</p>
                 <p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
             </header>
             <Tasks onAdd={onAddTask} onDelete= {onDeleteTask} tasks={projectTasks}/>
